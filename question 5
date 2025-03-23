@@ -1,0 +1,11 @@
+data = list(map(int, input().split()))
+
+if any(x < 10 or x > 200 for x in data):
+    print("INVALID INPUT")
+else:
+    averages = [sum(data[i::5]) // 4 for i in range(5)]
+    highest_avg = max(averages)
+    if highest_avg < 50:
+        print("Energy consumption is optimal.")
+    else:
+        print("Sensor Number :", averages.index(highest_avg) + 1)
