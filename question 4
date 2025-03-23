@@ -1,0 +1,21 @@
+n = int(input())
+A = input()
+B = input()
+
+if sorted(A) != sorted(B):
+    print(-1)
+else:
+    swaps = 0
+    a_list = list(A)
+
+    for i in range(n):
+        if a_list[i] != B[i]:
+            j = i
+            while a_list[j] != B[i]:
+                j += 1
+            while j > i:
+                a_list[j], a_list[j - 1] = a_list[j - 1], a_list[j]
+                swaps += 1
+                j -= 1
+
+    print(swaps)
