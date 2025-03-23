@@ -1,0 +1,10 @@
+brightness = list(map(int, input().split()))
+
+max_values = []
+k = 3  
+
+for i in range(len(brightness) - k + 1):
+    max_values.append(max(brightness[i:i + k]))
+
+result = min(max_values)
+print(result)
