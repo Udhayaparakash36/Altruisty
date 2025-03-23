@@ -1,17 +1,13 @@
-import sys
+# Input stock prices
+prices = list(map(int, input("Enter stock prices separated by spaces: ").split()))
 
-n = int(sys.stdin.readline().strip())
-prices = [int(sys.stdin.readline().strip()) for _ in range(n)]
-
-min_price = float('inf')
-max_profit = 0
+min_price = float('inf')  # To store the lowest price encountered
+max_profit = 0  # To store the maximum profit
 
 for price in prices:
     if price < min_price:
-        min_price = price
-    else:
-        profit = price - min_price
-        if profit > max_profit:
-            max_profit = profit
+        min_price = price  # Update the minimum price
+    elif price - min_price > max_profit:
+        max_profit = price - min_price  # Update the maximum profit
 
-print(max_profit)
+print(max_profit)  # Output the maximum profit
